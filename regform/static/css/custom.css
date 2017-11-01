@@ -21,11 +21,18 @@
 	margin-bottom: -2px;
 }
 
-<<<<<<< HEAD
 #cruxifix{
     float: right;
-=======
+}
+
 form{
-    margin-bottom: 2vh;
->>>>>>> b09edc4a1082c5c2ec3150256fff6628c2213ac2
+    margin: 3vh 0;
+}
+
+.container{
+    margin: 3vh auto;
+}
+
+#successful{
+    margin: 3vh 0;
 }

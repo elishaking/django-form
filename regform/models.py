@@ -3,10 +3,10 @@ from django.contrib import admin
 from multiselectfield import MultiSelectField
 
 
-
 # Create your models here.
 class Member(models.Model):
-    full_name = models.CharField("Full name:", max_length=60, blank=True)
+    member_id = models.CharField(max_length=10, blank=True, null=True)
+    full_name = models.CharField("Full name:", max_length=60)
     GENDER = (
         ('M', 'Male'),
         ('F', 'Female'),
@@ -35,8 +35,6 @@ class Member(models.Model):
 
     def __unicode__(self):
         return self.member_id
-
-
 
     occupation = models.CharField("Occupation:", max_length=100, blank=True)
     business_address = models.CharField("Business Address:", max_length=200, blank=True)
@@ -72,14 +70,16 @@ class Member(models.Model):
         ('Y', 'Yes'),
         ('N', 'No'),
     )
-    are_wedded_in_the_church = models.CharField("Are you wedded in the church ? ", max_length=1, choices=WEDDED, blank=True)
+    are_wedded_in_the_church = models.CharField("Are you wedded in the church ? ", max_length=1, choices=WEDDED,
+                                                blank=True)
     not_wedded = models.CharField("If no, please, state your reasons:", max_length=300, blank=True)
 
     TRIBAL_COMMUNITY = (
         ('Y', 'Yes'),
         ('N', 'No'),
     )
-    any_tribal_community = models.CharField("Do you belong to any tribal communities in the church ? ", max_length=1, choices=CONFIRMED_CATHOLIC, blank=True)
+    any_tribal_community = models.CharField("Do you belong to any tribal communities in the church ? ", max_length=1,
+                                            choices=CONFIRMED_CATHOLIC, blank=True)
     not_in_tribal_community = models.CharField("If no, please, state reasons:", max_length=300, blank=True)
     in_tribal_community = models.CharField("If yes, please, state the community:", max_length=300, blank=True)
 
@@ -87,7 +87,8 @@ class Member(models.Model):
         ('Y', 'Yes'),
         ('N', 'No'),
     )
-    member_of_any_pius_society = models.CharField("Are you a member of any pius societies in the church ? ", max_length=1, choices=PIUS_SOCIETY, blank=True)
+    member_of_any_pius_society = models.CharField("Are you a member of any pius societies in the church ? ",
+                                                  max_length=1, choices=PIUS_SOCIETY, blank=True)
     not_in_pius_society = models.CharField("If no, please state your reasons:", max_length=300, blank=True)
     yes_In_pius_society = models.CharField("If yes, please, state the society:", max_length=300, blank=True)
 
@@ -96,7 +97,8 @@ class Member(models.Model):
         ('M', 'CMO'),
         ('C', 'CYON'),
     )
-    belongs_to_any_organ_in_church = models.CharField("Do you belong to any of the three organs in the church ?", max_length=1, choices=ORGAN_CHURCH, blank=True)
+    belongs_to_any_organ_in_church = models.CharField("Do you belong to any of the three organs in the church ?",
+                                                      max_length=1, choices=ORGAN_CHURCH, blank=True)
     dont_belong_to = models.CharField("If no, please state reasons:", max_length=300, blank=True)
     yes_belong_to = models.CharField("If yes, please, state your role:", max_length=300, blank=True)
 

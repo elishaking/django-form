@@ -25,12 +25,12 @@ SECRET_KEY = '3t*wu7hdb7o$euiroc_)oyq#f5j5s55++u&y$l*cay(rgv1)lo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#TEST_RUNNER = 'churchform.heroku_test_runner.HerokuDiscoverRunner'
+# TEST_RUNNER = 'churchform.heroku_test_runner.HerokuDiscoverRunner'
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    #'churchforms.herokuapp.com'
+    # 'churchforms.herokuapp.com'
 ]
 
 # Application definition
@@ -51,8 +51,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    #'https://warehouse.python.org/project/whitenoise/',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'https://warehouse.python.org/project/whitenoise/',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,7 +125,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
@@ -145,7 +144,6 @@ ALLOWED_HOSTS = ['*']
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'regform/static'),
@@ -162,4 +160,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
