@@ -3,6 +3,7 @@ venv/
 .idea/
 static/
 db.sqlite3
+churchform_env/
 churchform/__pycache__/
 multiselectfield/__pycache__/
 multiselectfield/db/__pycache__/
