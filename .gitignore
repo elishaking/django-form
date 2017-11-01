@@ -1,4 +1,10 @@
-.idea/
-db.sqlite3
-migrations/
+venv/
 *.pyc
+.idea/
+static/
+db.sqlite3
+churchform/__pycache__/
+multiselectfield/__pycache__/
+multiselectfield/db/__pycache__/
+multiselectfield/forms/__pycache__/
+regform/__pycache__/

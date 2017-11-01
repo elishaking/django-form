@@ -3,8 +3,9 @@ from django.contrib import admin
 from multiselectfield import MultiSelectField
 
 
+
 # Create your models here.
-class BioData(models.Model):
+class Member(models.Model):
     full_name = models.CharField("Full name:", max_length=60, blank=True)
     GENDER = (
         ('M', 'Male'),
@@ -30,10 +31,13 @@ class BioData(models.Model):
     relation_with_next_of_kin = models.CharField("Relationship with next of kin:", max_length=100, blank=True)
 
     def __str__(self):
-        return self.full_name
+        return self.full_name, self.member_id
+
+    def __unicode__(self):
+        return self.member_id
 
 
-class Specialization(models.Model):
+
     occupation = models.CharField("Occupation:", max_length=100, blank=True)
     business_address = models.CharField("Business Address:", max_length=200, blank=True)
     skills = models.CharField("Skills/Talents:", max_length=100, blank=True)
@@ -42,8 +46,6 @@ class Specialization(models.Model):
     def __str__(self):
         return self.occupation
 
-
-class SpiritualData(models.Model):
     BAPTIZED = (
         ('Y', 'Yes'),
         ('N', 'No'),
@@ -96,77 +98,73 @@ class SpiritualData(models.Model):
     )
     belongs_to_any_organ_in_church = models.CharField("Do you belong to any of the three organs in the church ?", max_length=1, choices=ORGAN_CHURCH, blank=True)
     dont_belong_to = models.CharField("If no, please state reasons:", max_length=300, blank=True)
-    yes_belong_to = models.CharField("If yes, please, state the organ:", max_length=300, blank=True)
+    yes_belong_to = models.CharField("If yes, please, state your role:", max_length=300, blank=True)
 
     def __str__(self):
         return self.are_you_a_baptized_catholic
 
-
-class ChurchWorkHistory(models.Model):
     # def __init__(self):
     #     self.catechetical_work
 
     CATECHETICAL_WORK = (
-        ('a', 'Teaching Catechisms'),
-        ('b', 'Teaching in sunday school'),
-        ('c', 'Teaching in marriage course'),
-        ('d', 'Infant Baptism class'),
+        ('Teaching Catechisms', 'Teaching Catechisms'),
+        ('Teaching in sunday school', 'Teaching in sunday school'),
+        ('Teaching in marriage course', 'Teaching in marriage course'),
+        ('Infant Baptism class', 'Infant Baptism class'),
     )
 
     LITURGICAL_WORK = (
-        ('a', 'Choir'),
-        ('b', 'Proclamation(Layreader/Lector)'),
-        ('c', 'Church wardens'),
-        ('d', 'Alter Service'),
+        ('Choir', 'Choir'),
+        ('Layreader', 'Proclamation(Layreader/Lector)'),
+        ('Church warden', 'Church wardens'),
+        ('Alter Service', 'Alter Service'),
     )
 
     SECURITY_WORK = (
-        ('a', 'MOD'),
-        ('b', 'Boys Brigade'),
-        ('c', 'Security committee'),
-        ('d', 'Not apply'),
+        ('MOD', 'MOD'),
+        ('Boys Brigade', 'Boys Brigade'),
+        ('Security committee', 'Security committee'),
+        ('I am a security personnel', 'I am a security personnel'),
+        ('N/A', 'None'),
     )
 
     ENVIRONMENTAL_WORK = (
-        ('a', 'Personal church cleaning'),
-        ('b', 'Gardenning'),
-        ('c', 'Societal church cleaning'),
-        ('d', 'Not apply'),
+        ('Personal church cleaning', 'Personal church cleaning'),
+        ('Gardenning', 'Gardenning'),
+        ('Societal church cleaning', 'Societal church cleaning'),
+        ('Done this in the past', 'I used to clean the church'),
+        ('I clean the church', 'I do clean the church'),
+        ('None', 'Not apply'),
     )
 
     HEALTH_WORK = (
-        ('a', 'Health committee'),
-        ('b', 'Medical practitioner'),
-        ('c', 'Midwifing'),
-        ('d', 'Other, please specify'),
+        ('Health committee', 'Health committee'),
+        ('Medical practitioner', 'Medical practitioner'),
+        ('Midwifing', 'Midwifing'),
+        ('Not my field', 'Not my occupation'),
+        ('Other', 'Other, please specify'),
     )
 
     SPORTS = (
-        ('a', 'Sports committee'),
-        ('b', 'Trainer/Coach'),
-        ('c', 'Umpire'),
-        ('d', 'Sport team'),
+        ('Sports committee', 'Sports committee'),
+        ('Trainer/Coach', 'Trainer/Coach'),
+        ('Umpire', 'Umpire'),
+        ('Count me out', 'Count me out'),
+        ('Sport team', 'Sport team'),
     )
 
     OTHER_WORK = (
-        ('a', 'Harvest and Bazaar'),
-        ('b', 'Fund raising'),
-        ('c', 'Building/Project'),
-        ('d', 'Enlightenment and Awareness'),
-        ('e', 'Finance'),
-        ('f', 'Other, please specify'),
+        ('Harvest and Bazaar', 'Harvest and Bazaar'),
+        ('Fund raising', 'Fund raising'),
+        ('Building/Project', 'Building/Project'),
+        ('Enlightenment and Awareness', 'Enlightenment and Awareness'),
+        ('Finance', 'Finance'),
+        ('Other', 'Other, please specify'),
     )
-    catechetical_work = MultiSelectField(max_length=5, choices=CATECHETICAL_WORK, blank=True)
-    liturgical_work = MultiSelectField(max_length=5, choices=LITURGICAL_WORK, blank=True)
-    security_work = MultiSelectField(max_length=5, choices=SECURITY_WORK, blank=True)
-    environmental_work = MultiSelectField(max_length=5, choices=ENVIRONMENTAL_WORK, blank=True)
-    health_work = MultiSelectField(max_length=4, choices=HEALTH_WORK, blank=True)
-    sports = MultiSelectField(max_length=5, choices=SPORTS, blank=True)
-    other_work = MultiSelectField(max_length=5, choices=OTHER_WORK, blank=True)
-
-
-class Person(BioData):
-    bio_data = models.OneToOneField(BioData, on_delete=models.CASCADE, primary_key=True)
-    specialization = models.OneToOneField(Specialization, on_delete=models.CASCADE, null=True)
-    spiritual_data = models.OneToOneField(SpiritualData, on_delete=models.CASCADE, null=True)
-    church_work_history = models.OneToOneField(ChurchWorkHistory, on_delete=models.CASCADE, null=True)
+    catechetical_work = MultiSelectField(max_length=100, choices=CATECHETICAL_WORK, blank=True)
+    liturgical_work = MultiSelectField(max_length=100, choices=LITURGICAL_WORK, blank=True)
+    security_work = MultiSelectField(max_length=100, choices=SECURITY_WORK, blank=True)
+    environmental_work = MultiSelectField(max_length=100, choices=ENVIRONMENTAL_WORK, blank=True)
+    health_work = MultiSelectField(max_length=100, choices=HEALTH_WORK, blank=True)
+    sports = MultiSelectField(max_length=100, choices=SPORTS, blank=True)
+    other_work = MultiSelectField(max_length=100, choices=OTHER_WORK, blank=True)
