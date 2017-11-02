@@ -1,7 +1,7 @@
 venv/
 *.pyc
 .idea/
-static/
+!regform/static/
 db.sqlite3
 churchform_env/
 churchform/__pycache__/
