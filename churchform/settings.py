@@ -37,8 +37,8 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     # 'grappelli',
-    'admin_bootstrapped_plus',
-    'django_admin_bootstrapped',
+    # 'admin_bootstrapped_plus',
+    # 'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,7 +134,7 @@ DATABASES['default']['TEST'] = {'NAME': DATABASES['default']['NAME']}
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
