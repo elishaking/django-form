@@ -146,6 +146,7 @@ class Member(models.Model):
         ('Not my field', 'Not my occupation'),
         ('Other', 'Other, please specify'),
     )
+    other_health_work = models.CharField(max_length=50, blank=True)
 
     SPORTS = (
         ('Sports committee', 'Sports committee'),
@@ -163,6 +164,8 @@ class Member(models.Model):
         ('Finance', 'Finance'),
         ('Other', 'Other, please specify'),
     )
+    other_other_work = models.CharField(max_length=50, blank=True)
+
     catechetical_work = MultiSelectField(max_length=100, choices=CATECHETICAL_WORK, blank=True)
     liturgical_work = MultiSelectField(max_length=100, choices=LITURGICAL_WORK, blank=True)
     security_work = MultiSelectField(max_length=100, choices=SECURITY_WORK, blank=True)
