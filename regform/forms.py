@@ -13,6 +13,9 @@ class MembersForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'eg. Singing, Dancing, Football, volleyball, Computerist, ...'}),
         required=False)
 
+    # other_health_work = forms.CharField(widget=forms.TextInput(attrs={'class': 'hide'}), required=False)
+    # other_other_work = forms.CharField(widget=forms.TextInput(attrs={'class': 'hide'}), required=False)
+
     class Meta:
         model = Member
         fields = ['full_name', 'gender', 'marital_status', 'phone', 'town', 'lga', 'state', 'email', 'residence',
@@ -24,7 +27,7 @@ class MembersForm(forms.ModelForm):
                   'member_of_any_pius_society', 'not_in_pius_society', 'yes_In_pius_society',
                   'belongs_to_any_organ_in_church', 'dont_belong_to', 'yes_belong_to',
                   'catechetical_work', 'liturgical_work', 'security_work', 'environmental_work', 'health_work',
-                  'sports', 'other_work']
+                  'other_health_work', 'sports', 'other_work', 'other_other_work']
 
         # def __init__(self, *args, **kwargs):
         #     super(BioDataForm, self).__init__(*args, **kwargs)
