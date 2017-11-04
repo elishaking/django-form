@@ -37,8 +37,8 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     # 'grappelli',
-    'admin_bootstrapped_plus',
-    'django_admin_bootstrapped',
+    # 'admin_bootstrapped_plus',
+    # 'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
