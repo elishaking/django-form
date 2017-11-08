@@ -1,0 +1,15 @@
+runtime: python36
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /static
+  static_dir: static/
+- url: .*
+  script: churchform.wsgi.application
+
+libraries:
+- name: django
+  version: 1.11
+
+
