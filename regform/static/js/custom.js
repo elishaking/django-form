@@ -45,4 +45,68 @@ $(document).ready(() => {
         }
     });
 
+    $("#id_are_you_a_communicant").change(() => {
+        if($("#id_are_you_a_communicant").val() == "N"){
+            $("#div_id_not_communicant").addClass("has-error");
+            $("#div_id_not_communicant").removeClass("hide");
+            $("#id_not_communicant").attr("required", true);
+        } else{
+            $("#div_id_not_communicant").addClass("hide");
+            $("#div_id_not_communicant").removeClass("has-error");
+            $("#id_not_communicant").removeAttr("required");
+        }
+    });
+
+    $("#id_are_you_confirmed").change(() => {
+        if($("#id_are_you_confirmed").val() == "N"){
+            $("#div_id_not_confirmed").addClass("has-error");
+            $("#div_id_not_confirmed").removeClass("hide");
+            $("#id_not_confirmed").attr("required", true);
+        } else{
+            $("#div_id_not_confirmed").addClass("hide");
+            $("#div_id_not_confirmed").removeClass("has-error");
+            $("#id_not_confirmed").removeAttr("required");
+        }
+    });
+
+        $("#id_are_wedded_in_the_church").change(() => {
+        if($("#id_are_wedded_in_the_church").val() == "N"){
+            $("#div_id_not_wedded").addClass("has-error");
+            $("#div_id_not_wedded").removeClass("hide");
+            $("#id_not_wedded").attr("required", true);
+        } else{
+            $("#div_id_not_wedded").addClass("hide");
+            $("#div_id_not_wedded").removeClass("has-error");
+            $("#id_not_wedded").removeAttr("required");
+        }
+    });
+
+    $("#id_any_tribal_community").change(() => {
+        if($("#id_any_tribal_community").val() == "N"){
+            $("#div_id_in_tribal_community").addClass("hide");
+            $("#div_id_not_in_tribal_community").addClass("has-error");
+            $("#div_id_not_in_tribal_community").removeClass("hide");
+            $("#id_not_in_tribal_community").attr("required", true);
+        } else{
+            $("#div_id_not_in_tribal_community").addClass("hide");
+            $("#div_id_in_tribal_community").addClass("has-error");
+            $("#div_id_in_tribal_community").removeClass("hide");
+            $("#id_in_tribal_community").attr("required", true);
+        }
+    });
+
+        $("#id_member_of_any_pius_society").change(() => {
+        if($("#id_member_of_any_pius_society").val() == "N"){
+            $("#div_id_yes_In_pius_society").addClass("hide");
+            $("#div_id_not_in_pius_society").addClass("has-error");
+            $("#div_id_not_in_pius_society").removeClass("hide");
+            $("#id_not_in_pius_society").attr("required", true);
+        } else{
+            $("#div_id_not_in_pius_society").addClass("hide");
+            $("#div_id_in_any_pius_society").addClass("has-error");
+            $("#div_id_in_any_pius_society").removeClass("hide");
+            $("#id_yes_In_pius_society").attr("required", true);
+        }
+    });
+
 });
